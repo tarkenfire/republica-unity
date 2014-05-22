@@ -3,7 +3,7 @@
 public class MainPage : OGPage
 {
 	int turnNumber = 1;
-	int score = 0;
+	public static int score = 0;
 	private int pcPoints = 1000, cfPoints = 0, plPoints = 0;
 
 	private float partySupport = .5f;
@@ -17,6 +17,12 @@ public class MainPage : OGPage
 	//button handlers
 	public void onNextTurn()
 	{
+		if (partySupport <= 0 || turnNumber >= 100) 
+		{
+			endGame();
+		}
+
+
 		pcPoints += 500;
 		
 		if (camTick1.isTicked && cfPoints - 1 >= 0) {
@@ -31,6 +37,7 @@ public class MainPage : OGPage
 		if (legTick1.isTicked && plPoints - 1 >= 0) 
 		{
 			--plPoints;
+			MainPage.score++;
 
 		}
 		else 
@@ -114,6 +121,11 @@ public class MainPage : OGPage
 		plLabel.text = "Leverage: " + plPoints;
 
 		supportMeter.value = partySupport;
+	}
+
+	private void endGame()
+	{
+		Debug.Log("Game Ended " + score + " " + turnNumber);
 	}
 
 }
