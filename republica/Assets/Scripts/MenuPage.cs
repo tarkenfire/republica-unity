@@ -12,7 +12,6 @@ public class MenuPage : OGPage
 
 	public void onPlayPressed()
 	{
-		Debug.Log("Play Pressed");
 		Application.LoadLevel("MainSceen");
 	}
 

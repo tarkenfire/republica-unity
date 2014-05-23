@@ -125,7 +125,7 @@ public class MainPage : OGPage
 
 	private void endGame()
 	{
-		Debug.Log("Game Ended " + score + " " + turnNumber);
+		Application.LoadLevel("GameOverScene");
 	}
 
 }
