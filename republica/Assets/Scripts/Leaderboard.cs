@@ -1,18 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Leaderboard : OGPage
+public class GameOverPage : OGPage
 {
 	public override void StartPage()
-	{
-		
-		
-		
-	}
+	{}
 	
-	public void onMenuPressed()
+	public void onMenuClick()
 	{
 		Application.LoadLevel("MainMenuScene");
 	}
-	
 }
