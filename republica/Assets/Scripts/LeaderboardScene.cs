@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameOverPage : OGPage
+public class LeaderboardScene: OGPage
 {
 	public override void StartPage()
 	{}
