@@ -6,6 +6,10 @@ public class MainPage : OGPage
 	public static int score = 0;
 	private int pcPoints = 1000, cfPoints = 0, plPoints = 0;
 
+	public static bool pass10 = false, pass20 = false, pass30 = false;
+	public static bool office40 = false;
+	public static bool lameDuck = false;
+
 	private float partySupport = .5f;
 
 	//ui refs
@@ -19,6 +23,12 @@ public class MainPage : OGPage
 	{
 		if (partySupport <= 0 || turnNumber >= 100) 
 		{
+
+			if (score == 0)
+			{
+				MainPage.lameDuck = true;
+			}
+
 			endGame();
 		}
 
@@ -47,7 +57,28 @@ public class MainPage : OGPage
 
 		partySupport -= .02f;
 
+		if (score >= 10) 
+		{
+			MainPage.pass10 = true;
+		}
+
+		if (score >= 20) 
+		{
+			MainPage.pass20 = true;
+		}
+
+		if (score >= 30) 
+		{
+			MainPage.pass30 = true;
+		}
+
 		turnNumber++;
+
+		if (turnNumber >= 40) 
+		{
+			MainPage.office40 = true;
+		}
+
 		setPointTotals();
 	}
 
@@ -122,6 +153,7 @@ public class MainPage : OGPage
 
 		supportMeter.value = partySupport;
 	}
+
 
 	private void endGame()
 	{
